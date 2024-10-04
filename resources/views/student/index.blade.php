@@ -275,13 +275,13 @@
                         $.each(response.errors, function (key, err_value) {
                             $('#save_msgList').append('<li>' + err_value + '</li>');
                         });
-                        $('#add_student').text('Save');
+                        $('.add_student').text('Save');
                     } else {
                         $('#save_msgList').html("");
                         $('#success_message').addClass('alert alert-success');
                         $('#success_message').text(response.message);
                         $('#AddStudentModal').find('input').val('');
-                        $('#add_student').text('Save');
+                        $('.add_student').text('Save');
                         $('#AddStudentModal').modal('hide');
                         fetchstudent();
                     }
@@ -305,7 +305,7 @@
                         $('#editModal').modal('hide');
                     } else {
                         // Reset the form before populating
-                        $('#update_student')[0].reset();
+                        //$('#update_student')[0].reset();
 
                         // Set the student's existing data
                         $('#name').val(response.student.name);
@@ -330,14 +330,10 @@
                         });
 
                         $("#imgs").attr('src',URL.createObjectURL(_file));
-                        
-
                     }
                 }
             });
-
             $('.btn-close').find('input').val('');
-
         });
 
         $('#update_student').on('submit', function(e) {
@@ -370,7 +366,7 @@
                             $('#update_msgList').append('<li>' + err_value +
                                 '</li>');
                         });
-                        $('#update_student').text('Update');
+                        $('.update_student').text('Update');
                     } else {
                         $('#update_msgList').html("");
 

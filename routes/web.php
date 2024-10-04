@@ -23,7 +23,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 
-Route::group(['middleware' => ['auth']], function () { 
+Route::group(['middleware' => ['auth']], function () {
     Route::get('home', [StudentController::class, 'index']);
     Route::post('students', [StudentController::class, 'store']);
     Route::get('fetch-students', [StudentController::class, 'fetchstudent']);
@@ -31,3 +31,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('update-student/{id}', [StudentController::class, 'update']);
     Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
 });
+
+Route::view('users', 'users');
+Route::view('about', 'about');
